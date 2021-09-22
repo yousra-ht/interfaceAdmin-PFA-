@@ -1,0 +1,70 @@
+<router-outlet></router-outlet>
+<div class="br-mainpanel">
+    <div class="br-pageheader pd-y-15 pd-l-20">
+      <nav class="breadcrumb pd-0 mg-0 tx-12">
+        <a class="breadcrumb-item" href="">Bracket</a>
+        <a class="breadcrumb-item" href="#">Tables</a>
+        <span class="breadcrumb-item active">Data Table</span>
+      </nav>
+    </div><!-- br-pageheader -->
+    <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+      <h4 class="tx-gray-800 mg-b-5">Liste des Etudiants</h4>
+      
+    </div>
+
+    <div class="br-pagebody">
+      <div class="br-section-wrapper">
+        <div class="row">
+          <div class="col-md-10">
+        <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">liste</h6>
+      </div>
+      <div class="col-md-2">
+        <a  routerLink="/ajouter-etudiant" routerLinkActive="active"> <button style="background-color: #00b297 ! important;" class="btn btn-teal active btn-block mg-b-10">ajouter</button></a>
+      </div>
+        </div>
+
+        <div class="table-wrapper" id="br-pagebody">
+          <table id="datatable1" class="table display responsive nowrap">
+            <thead>
+              <tr>
+                <th class="wd-15p">id</th>
+                <th class="wd-15p">nom</th>
+                <th class="wd-20p">prenom</th>
+                <th class="wd-20p">mail</th>
+                <th class="wd-20p"> Action </th>
+                
+          
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let etudiant of etudiants'>
+                <td>{{etudiant.id}}</td>
+                <td>{{etudiant.username}}</td>
+                <td>{{etudiant.username}}</td>
+                <td>{{etudiant.email}}</td>
+                <td>
+                  <a [routerLink]="[dynamicParameter]" (click)="EtudiantDelete(etudiant)"> 
+                    <i class="fas fa-trash-alt" style="color: red; padding: 5px;"></i> 
+                  </a>
+                </td>
+              
+               
+              </tr>
+          
+             
+            </tbody>
+          </table>
+        </div><!-- table-wrapper -->
+      
+      
+
+      </div><!-- br-section-wrapper -->
+    </div><!-- br-pagebody -->
+    <script src="../../assets/lib/datatables/jquery.dataTables.js"></script>
+    <script src="../../assets/lib/datatables-responsive/dataTables.responsive.js"></script>
+  </div><!-- br-mainpanel -->
+      
+      <script>
+         $('#datatable1').DataTable({}); 
+      </script>
